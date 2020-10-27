@@ -6,6 +6,78 @@ body{
     height: 100vh;
     overflow-x: hidden;
 }
+::-webkit-scrollbar{
+    width:0;
+    background:transparent;
+}
+#preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(119, 206, 199);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#loader{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    position:relative;
+    transform:rotate(45deg);
+}
+#loader::after{
+    content:'LOADING';
+    color:black;
+    font-size: 18px;
+    letter-spacing:3px;
+    width: 100%;
+    position:absolute;
+    font-family:sans-serif;
+    justify-content: center;
+    text-align: center;
+    bottom: -30px;
+    text-shadow: 0 0 4px gray;
+}
+#bars-loader{
+    display: flex;
+    /* position: absolute; */
+    padding: 5px 3px;
+    width: 100%;
+    height:100%;
+    box-shadow:0 0 2px white;
+}
+#bar-load{
+    display: inline-block;
+    background-color:gray;
+    transform:scaleY(1);
+    width: 100%;
+    height: 100%;
+    margin: 0px 5px;
+    box-shadow:0 0 2px whitesmoke;
+    animation: animatebars 1s infinite linear alternate;
+    transform-origin: bottom;
+}
+#bar-load:nth-child(2){
+    animation-delay: 0.5s;
+}
+#bar-load:nth-child(3){
+    animation-delay: 1s;
+}
+@keyframes animatebars{
+    from{
+        transform:scaleY(0);
+        background-color: coral;
+    }
+    to{
+        transform:scaleY(1);
+        background-color:cornflowerblue;
+    }
+}
 .header-container{
     display:grid;
     grid-template-columns: auto auto;
@@ -361,7 +433,7 @@ body{
         width:100%;
         height: 87%;
         grid-template-columns: auto auto auto auto;
-        grid-template-rows: 290px 290px;
+        grid-template-rows: 300px 300px;
         grid-gap: 10px;
         align-content: center;
         background-color: white;
@@ -369,15 +441,15 @@ body{
     }
     .item{
         z-index: 1;
-        box-shadow: 6px 4px rgba(136, 136, 136,0.1);
+        box-shadow: 3px 2px rgba(136, 136, 136,0.1);
         text-align: center;
     }
     .item img{
         width: 100%;
-        height: 290px;
+        height: 300px;
     }
     #main-image{
-        height: 590px;
+        height: 610px;
         object-fit: cover;
     }
     div:nth-child(1){

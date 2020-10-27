@@ -6,6 +6,12 @@ var navbar = document.getElementById('large-screen-navbar');
 var navbar_links = document.getElementById('links-display').innerHTML;
 var cart_emojis = document.getElementById('cart-div').innerHTML;
 
+$(window).on('load',function(){
+  $('#loader').fadeOut();
+  $('#preloader').delay(300).fadeOut('slow');
+  $('body').delay(300).css({'overflow':'visible'});
+})
+
 opendiv.addEventListener('click',()=>{ 
     hidediv.style.display='block';
 })
